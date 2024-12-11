@@ -1,5 +1,6 @@
 package com.example.broadcastapp;
 
+import android.content.IntentFilter;
 import android.os.Bundle;
 
 import androidx.activity.EdgeToEdge;
@@ -18,6 +19,11 @@ public class MainActivity extends AppCompatActivity {
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
+
+            // Register dynamically the BroadCast Receiver
+            IntentFilter intentFilter = new IntentFilter("android.intent.action.AIRPLANE_MODE");
+            AirplaneModeReceiver br = new AirplaneModeReceiver();
+            registerReceiver(br, intentFilter);
             return insets;
         });
     }
