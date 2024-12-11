@@ -1,5 +1,6 @@
 package com.example.broadcastapp;
 
+import android.bluetooth.BluetoothAdapter;
 import android.content.IntentFilter;
 import android.os.Bundle;
 
@@ -23,6 +24,11 @@ public class MainActivity extends AppCompatActivity {
             // Register dynamically the BroadCast Receiver
             IntentFilter intentFilter = new IntentFilter("android.intent.action.AIRPLANE_MODE");
             AirplaneModeReceiver br = new AirplaneModeReceiver();
+
+            IntentFilter intentFilterBt = new IntentFilter(BluetoothAdapter.ACTION_STATE_CHANGED);
+            BluetoothModeReceiver bluetoothModeReceiver = new BluetoothModeReceiver();
+
+            registerReceiver(bluetoothModeReceiver, intentFilterBt);
             registerReceiver(br, intentFilter);
             return insets;
         });

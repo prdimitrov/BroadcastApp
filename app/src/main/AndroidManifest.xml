@@ -31,6 +31,13 @@
 <!--                <action android:name="android.intent.action.AIRPLANE_MODE"/>-->
 <!--            </intent-filter>-->
 <!--        </receiver>-->
+
+<!--        <receiver android:name=".BluetoothModeReceiver"-->
+<!--            android:exported="true">-->
+<!--            <intent-filter>-->
+<!--                <action android:name="android.bluetooth.adapter.action.STATE_CHANGED"/>-->
+<!--            </intent-filter>-->
+<!--        </receiver>-->
     </application>
 
 </manifest>
